@@ -57,3 +57,12 @@ ggplot(data = as_tibble(bin_distribution), mapping = aes(x=value)) +
   labs(x='Sampling Distribution of mean') +
   theme_minimal() 
 ```
+
+* Because we now have identified the properties of the sampling distribution of sample mean <img src="https://latex.codecogs.com/svg.image?\overline{x}" title="\overline{x}" /> , we can use this distribution to answer the question like: What is the probability that the sample mean computed using a simple random sample of 30 managers will be within $500 of the population mean? i.e. <img src="https://latex.codecogs.com/svg.image?P(51,300&space;\leq&space;\overline{x}&space;\leq&space;52,300)" title="P(51,300 \leq \overline{x} \leq 52,300)" /> , where <img src="https://latex.codecogs.com/svg.image?E(\overline{x})" title="E(\overline{x})" /> = <img src="https://latex.codecogs.com/svg.image?\mu&space;" title="\mu " /> = $51,800 and standard deviation of sample mean <img src="https://latex.codecogs.com/svg.image?\overline{x}" title="\overline{x}" /> is <img src="https://latex.codecogs.com/svg.image?\sigma&space;/&space;\sqrt{n}&space;" title="\sigma / \sqrt{n} " /> = 730.30.
+* In R-Programming we can use the below code to calculate the required properties under the curve between these two values: 
+
+```
+pnorm(52300, mean=51800, sd=730.30, lower.tail = TRUE) - pnorm(51300, mean=51800, sd=730.30, lower.tail = TRUE)
+```
+
+   
